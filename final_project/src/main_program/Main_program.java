@@ -1,4 +1,5 @@
 package main_program;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Main_program {
@@ -7,20 +8,17 @@ public class Main_program {
         Student_list student_list = new Student_list();
         ArrayList<student> arrayOfStudents = new ArrayList<>();
         arrayOfStudents = student_list.getArrayOfStudents();
-        System.out.println(arrayOfStudents.get(0).memberArrayOfBooks);
-        arrayOfStudents.get(0).memberArrayOfBooks.add((new Book("亂加的", 3)));
-        arrayOfStudents.get(0).memberArrayOfBooks.add((new Book("二亂加二", 2)));
-        System.out.println(arrayOfStudents.get(0).memberArrayOfBooks.get(1));
+        //arrayOfStudents.get(0).memberArrayOfBooks.add((new Book("亂加的", "5798",false)));
         ArrayList<Book> memberArrayOfBooks = new ArrayList<>();
         Book_list book_list=new Book_list();
-        Scanner scan = new Scanner(System.in);  // Create a Scanner object
+        Scanner scan = new Scanner(System.in);  
 
         int function_mode = 0;
         do{
             System.out.println("\nchoose funtion\n(1)sreach\n(2)register\n(3)login\n(4)quit");
         	function_mode = scan.nextInt();
         	
-        	if (function_mode==1) {		//sreach的功能
+        	if (function_mode==1) {				//sreach的功能
         		book_list.search_book();
             }//sreach結尾
         	
@@ -66,6 +64,7 @@ public class Main_program {
                 }while(identity_mode!=3);
             }//register結尾
         	
+        	
             else if (function_mode==3) {		//login的功能
             	 int identity_mode= 0;
                  do {
@@ -104,24 +103,29 @@ public class Main_program {
                             }//switch
                            
                             while(check!=0) {
-                        		System.out.println("\nchoose funtion\n(1)borrow\n(2)return\n(3)information\n(4)logout\n");
+                        		System.out.println("\nchoose funtion\n(1)serach\n(2)borrow\n(3)return\n(4)information\n(5)logout\n");
                                 int logined_function = scan.nextInt(); 
                                 switch(logined_function) {
                                 case 1:		
-                                	book_list.borrow_book(arrayOfStudents.get(counter));	//送會員資料過去
-                                    System.out.println(arrayOfStudents.get(counter).memberArrayOfBooks);
-                                    System.out.println(arrayOfStudents.get(counter));                         
-                                	break;
+                                	book_list.search_book();                                	break;
                                 case 2:			
-                                	//arrayOfStudents.get(0).memberArrayOfBooks.get(1);
+                                	book_list.borrow_book(arrayOfStudents.get(counter));	//送會員資料過去
                                 	break;
-                                case 3:					
+                                case 3:		
+                                    System.out.printf("個人資料：%s\n",arrayOfStudents.get(counter));
+                                	book_list.return_book(arrayOfStudents.get(counter));
+                                    System.out.printf("個人資料：%s\n",arrayOfStudents.get(counter));
+
                                 	break;
                                 case 4:	
+                                    System.out.printf("個人資料：%s\n",arrayOfStudents.get(counter));
+                                	break;
+                                case 5:	
                                 	check=0;
                                 	break;
                                 }
-                        	};//登入功能結尾 
+                        	};//登入功能結尾         		
+
                      	}
                  		else {				// quit
                  			System.out.println("請輸入1~3");
@@ -129,6 +133,7 @@ public class Main_program {
                 	 
                   }while(identity_mode!=3);
             }//login結尾
+        	
         	
             else if (function_mode==4) {			//quit
             	System.out.println("程式結束");

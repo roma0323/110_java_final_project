@@ -1,31 +1,49 @@
 package main_program;
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import java.util.Scanner;
+import java.time.LocalDate;
 
 public class Book {
 	public String book_name;
-	public int book_amount;
-	public Book(String book_name,int book_amount) {
+	public String ISBM;
+	public boolean book_available;
+	public LocalDate due_date;
+	public Book(String book_name,String ISBM,boolean book_available) {
 		setBook_name( book_name);
-		setBook_amount( book_amount);
+		setISBM( ISBM);
+		setBook_available( book_available);
 	}
+	public boolean isBook_available() {
+		return book_available;
+	}
+	public void setBook_available(boolean book_available) {
+		this.book_available = book_available;
+	}
+	public LocalDate getDue_date() {
+		return due_date;
+	}
+	public void setDue_date(LocalDate due_date) {
+		this.due_date = due_date;
+	}
+	
 	public String getBook_name() {
 		return book_name;
 	}
 	public void setBook_name(String book_name) {
 		this.book_name = book_name;
 	}
-	public int getBook_amount() {
-		return book_amount;
+	public String getISBM() {
+		return ISBM;
 	}
-	public void setBook_amount(int book_amount) {
-		this.book_amount = book_amount;
+	public void setISBM(String iSBM) {
+		ISBM = iSBM;
 	}
 	@Override
 	public String toString() {
-		return "book_name=" + book_name + ", book_amount=" + book_amount ;
+		return "book_name=" + book_name + ", ISBM=" + ISBM + ", book_available=" + book_available + ", due_date="
+				+ due_date ;
 	}
+	
+	
 	
 }
