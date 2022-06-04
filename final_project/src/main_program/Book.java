@@ -40,7 +40,7 @@ public class Book {
 	}
 	@Override
 	public String toString() {
-		return "book_name=" + book_name + ", ISBM=" + ISBM + ", book_available=" + book_available + ", due_date="
+		return "\n"+"book_name=" + book_name + ", ISBM=" + ISBM + ", book_available=" + book_available + ", due_date="
 				+ due_date ;
 	}
 	

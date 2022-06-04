@@ -2,19 +2,31 @@ package main_program;
 
 import java.util.ArrayList;
 
-public class member {
+public  class member {
 	protected String account ;
 	protected String password ;
 	protected String name ;
-	protected ArrayList<Book> memberArrayOfBooks ;
-
-	public member(String name,String account,String password,ArrayList<Book> memberArrayOfBooks) {
+	protected ArrayList<Book> memberArrayOfBooks ;	
+	protected int fine;
+	
+	public member(String name,String account,String password,ArrayList<Book> memberArrayOfBooks) {	//
 		setName( name);
 		setAccount( account);
 		setPassword( password);
 		setMemberArrayOfBooks(memberArrayOfBooks);
+		setFine(0);
 	}
 	
+	public int getFine() {
+		return fine;
+	}
+
+	public void setFine(int fine) {
+		this.fine = fine;
+	}
+	public void addFine(int fine) {
+		this.fine = fine;
+	}
 	public ArrayList<Book> getMemberArrayOfBooks() {
 		return memberArrayOfBooks;
 	}
@@ -44,7 +56,7 @@ public class member {
 	@Override
 	public String toString() {
 		return "account=" + account + ", password=" + password + ", name=" + name + ", memberArrayOfBooks="
-				+ memberArrayOfBooks;
+				+ memberArrayOfBooks + ", fine=" + fine;
 	}
 	
 	

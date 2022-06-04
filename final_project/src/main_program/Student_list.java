@@ -2,15 +2,26 @@ package main_program;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Student_list {
-    private ArrayList<student> arrayOfStudents = new ArrayList<>();
-    private ArrayList<Book> defaultBook = new ArrayList<>();	//空借書名單
-	public Student_list() {
-		arrayOfStudents.add(new student("roger", "11", "11", "110403519",defaultBook));
-		arrayOfStudents.add(new student("roma", "22", "22", "110403520",defaultBook));
-		
+    private  ArrayList<student> arrayOfStudents ;
+    private student student;
+    private ArrayList<Book> defaultBook = new ArrayList<>();	//空借書名單  因為不能是null
+    
+	public Student_list(ArrayList<student> arrayOfStudents ) {
+		setArrayOfStudents( arrayOfStudents);
 	}
 	
-	public ArrayList<student> getArrayOfStudents() {
+	public void addArrayOfStudents(student student) {
+		this.arrayOfStudents.add(student);
+	}
+	public student getStudent() {
+		return student;
+	}
+
+	public void setStudent(student student) {
+		this.student = student;
+	}
+
+	public  ArrayList<student> getArrayOfStudents() {
 		return arrayOfStudents;
 	}
 
@@ -18,7 +29,7 @@ public class Student_list {
 		this.arrayOfStudents = arrayOfStudents;
 	}
 
-	public ArrayList register_student(String name, String account, String password,ArrayList<Book> memberArrayOfBooks) {
+	public ArrayList register_student(String name, String account, String password,ArrayList<Book> memberArrayOfBooks) {//
         Scanner scan = new Scanner(System.in);  
         System.out.println("input your student_id(Int)");
     	String student_id = scan.nextLine();
